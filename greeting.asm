@@ -13,10 +13,10 @@ section .text
     global greeting
 
 greeting:
-     Do not modify anything above this line unless you know what you are doing
-     ==========================
-     Your code goes here
-     ==========================
-     Do not modify anything below this line unless you know what you are doing
+    ; Do not modify anything above this line unless you know what you are doing
+    ; ==========================
+    ; Your code goes here
+    ; ==========================
+    ; Do not modify anything below this line unless you know what you are doing
 
     ret                          return from function
