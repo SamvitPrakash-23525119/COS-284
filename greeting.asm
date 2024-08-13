@@ -1,7 +1,7 @@
 ; ==========================
 ; Group member 01: Name_Surname_student-nr
 ; Group member 02: Name_Surname_student-nr
-; Group member 03: Name_Surname_student-nr
+; Group member 03: Alisha Perumal u22512285
 ; ==========================
 
 section .data
@@ -13,10 +13,10 @@ section .text
     global greeting
 
 greeting:
-    ; Do not modify anything above this line unless you know what you are doing
-    ; ==========================
-    ; Your code goes here
-    ; ==========================
-    ; Do not modify anything below this line unless you know what you are doing
+     Do not modify anything above this line unless you know what you are doing
+     ==========================
+     Your code goes here
+     ==========================
+     Do not modify anything below this line unless you know what you are doing
 
-    ret                         ; return from function
+    ret                          return from function
