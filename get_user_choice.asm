@@ -9,7 +9,9 @@ section .data
 
 section .bss
     ; ==========================
-    ; Your data goes here
+    choice db 0
+    trash db 0
+    s db 1
     ; ==========================
 
 section .text
