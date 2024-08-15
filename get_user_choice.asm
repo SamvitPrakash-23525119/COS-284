@@ -4,10 +4,11 @@
 ; Group member 03: Alisha_Perumal_u22512285
 ; ==========================
    
+section .data
+    sChoice db "Choice: "
 
 section .bss
     ; ==========================
-    sChoice db "Choice: ", 0x0a
     choice db 0
     trash db 0
     s db 1
@@ -21,7 +22,6 @@ extern greeting
 get_user_choice:
     ; Call the greeting function to print the welcome message
     call greeting
-    
     
     mov rax, 1                ; syscall number for sys_write
     mov rdi, 1                ; file descriptor 1 is stdout
