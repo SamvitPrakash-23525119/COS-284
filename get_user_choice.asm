@@ -7,7 +7,7 @@
 
 section .bss
     ; ==========================
-    message db "Choice: "
+    sChoice db "Choice: ", 0x0a
     choice db 0
     trash db 0
     s db 1
@@ -25,7 +25,7 @@ get_user_choice:
     
     mov rax, 1                ; syscall number for sys_write
     mov rdi, 1                ; file descriptor 1 is stdout
-    mov rsi, message          ; address of the string
+    mov rsi, sChoice          ; address of the string
     mov rdx, 8                ; length of the string ("Choice: " + newline)
     syscall
 
@@ -36,8 +36,6 @@ get_user_choice:
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing 
     ret
-<<<<<<< HEAD
-=======
 
 input:
     mov rax, 0
@@ -48,4 +46,3 @@ input:
     mov rdx, 1
     syscall
     ret
->>>>>>> e019496f62547ceda4bc03094aeaf7d0a5eaa57a
