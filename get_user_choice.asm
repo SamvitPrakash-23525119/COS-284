@@ -3,12 +3,11 @@
 ; Group member 02: Diya_Budhia_u22594044
 ; Group member 03: Alisha_Perumal_u22512285
 ; ==========================
-
-section .data 
-    message db "Choice: "
+   
 
 section .bss
     ; ==========================
+    message db "Choice: "
     choice db 0
     trash db 0
     s db 1
@@ -30,8 +29,25 @@ get_user_choice:
     mov rdx, 8                ; length of the string ("Choice: " + newline)
     syscall
 
-    ; ==========================
-    ; Your data goes here
+    mov rdx, s
+    mov rsi, choice
+    call input
+
+
+    
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing 
     ret
+<<<<<<< HEAD
+=======
+
+input:
+    mov rax, 0
+    mov rdi, 0
+    syscall
+
+    mov rsi, trash
+    mov rdx, 1
+    syscall
+    ret
+>>>>>>> e019496f62547ceda4bc03094aeaf7d0a5eaa57a
