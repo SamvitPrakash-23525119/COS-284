@@ -25,8 +25,6 @@ get_user_choice:
     mov rsi, choice
     call input
 
-
-    
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing 
     ret
