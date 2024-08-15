@@ -6,7 +6,9 @@
 
 section .bss
     ; ==========================
-    ; Your data goes here
+    choice db 0
+    trash db 0
+    s db 1
     ; ==========================
 
 section .text
@@ -19,7 +21,22 @@ get_user_choice:
     call greeting
 
     ; ==========================
-    ; Your data goes here
+    mov rdx, s
+    mov rsi, choice
+    call input
+
+
+    
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing 
+    ret
+
+input:
+    mov rax, 0
+    mov rdi, 0
+    syscall
+
+    mov rsi, trash
+    mov rdx, 1
+    syscall
     ret
