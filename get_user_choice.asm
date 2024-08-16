@@ -20,8 +20,7 @@ section .text
 extern greeting             
 
 get_user_choice:
-    ; Call the greeting function to print the welcome message
-    call greeting
+    call greeting             ; Call the greeting function to print the welcome message
     
     mov rax, 1                ; syscall number for sys_write
     mov rdi, 1                ; file descriptor 1 is stdout
@@ -30,19 +29,22 @@ get_user_choice:
     syscall
 
     mov rdx, s
-    mov rsi, choice
-    call input
+    mov eax, choice
+    call input  
 
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing 
     ret
 
 input:
+
     mov rax, 0
     mov rdi, 0
-    syscall
-
     mov rsi, trash
     mov rdx, 1
     syscall
+
+    mov eax, [trash+1]
+    syscall
+
     ret

@@ -32,7 +32,7 @@ print_char_32:
 encrypt_and_print:
     ; Do not modify anything above this line unless you know what you are doing
     ; ==========================
-    ; Your code goes here
+    
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing
 
