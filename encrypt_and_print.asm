@@ -13,7 +13,7 @@ section .data
 
 section .bss
     ; ==========================
-    ;input_buffer resb 256       ;buffer to store user input
+    input_buffer resb 256       ;buffer to store user input
     ; ==========================
 
 section .text
@@ -32,7 +32,7 @@ print_char_32:
 encrypt_and_print:
     ; Do not modify anything above this line unless you know what you are doing
     ; ==========================
-    ;mov rsi, input_buffer
+    mov rsi, input_buffer
     mov rcx, 0
 
 encrypt_loop:
