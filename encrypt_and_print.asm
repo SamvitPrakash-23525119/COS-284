@@ -8,12 +8,12 @@ section .data
     fmt db "%c", 0
     ; Do not modify anything above this line unless you know what you are doing
     ; ==========================
-    ; Your data goes here
+    xor_const dd 0x73113777     
     ; ==========================
 
 section .bss
     ; ==========================
-    ; Your data goes here
+    ;input_buffer resb 256       ;buffer to store user input
     ; ==========================
 
 section .text
@@ -32,8 +32,28 @@ print_char_32:
 encrypt_and_print:
     ; Do not modify anything above this line unless you know what you are doing
     ; ==========================
-    
+    ;mov rsi, input_buffer
+    mov rcx, 0
+
+encrypt_loop:
+    mov al, [rsi + rcx]
+    cmp al, 0
+    je done
+
+    rol al, 4
+
+    ;movzx eax, [xor_const] 
+    ;xor eax, dword [xor_const]
+
+    movzx eax, al
+    mov ebx, dword [xor_const]
+    xor eax, ebx
+
+    call print_char_32
+
+    inc rcx
+    jmp encrypt_loop
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing
-
+done:
     ret
