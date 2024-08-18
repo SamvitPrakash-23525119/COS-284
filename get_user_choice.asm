@@ -11,11 +11,10 @@ section .bss
     ; ==========================
     choice db 0
     trash db 0
-    s db 1
     ; ==========================
 
 section .text
-    global get_user_choice
+    global get_user_choice, input
 
 extern greeting             
 
@@ -28,8 +27,8 @@ get_user_choice:
     mov rdx, 8                ; length of the string ("Choice: " + newline)
     syscall
 
-    mov rdx, s
-    mov eax, choice
+    mov rax, choice
+    mov rdx, 1
     call input  
 
     ; ==========================
@@ -37,14 +36,14 @@ get_user_choice:
     ret
 
 input:
+    mov rax, 0
+    mov rdi, 0
+    syscall
 
     mov rax, 0
     mov rdi, 0
     mov rsi, trash
     mov rdx, 1
-    syscall
-
-    mov eax, [trash+1]
     syscall
 
     ret
