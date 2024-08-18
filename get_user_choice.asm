@@ -19,20 +19,18 @@ section .text
 extern greeting             
 
 get_user_choice:
-    call greeting             ; Call the greeting function to print the welcome message
+    call greeting             
     
-    mov rax, 1                ; syscall number for sys_write
-    mov rdi, 1                ; file descriptor 1 is stdout
-    mov rsi, sChoice          ; address of the string
-    mov rdx, 8                ; length of the string ("Choice: " + newline)
+    mov rax, 1                
+    mov rdi, 1                
+    mov rsi, sChoice          
+    mov rdx, 8                
     syscall
 
     mov rax, choice
     mov rdx, 1
     call input  
 
-    ; ==========================
-    ; Do not modify anything below this line unless you know what you are doing 
     ret
 
 input:

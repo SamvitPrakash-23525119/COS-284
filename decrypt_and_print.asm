@@ -3,22 +3,25 @@
 ; Group member 02: Diya_Budhia_u22594044
 ; Group member 03: Alisha_Perumal_u22512285
 ; ==========================
+section .bss
+    trash resb 1
 
 section .data
     fmt db "%c", 0
     ; Do not modify anything above this line unless you know what you are doing
     ; ==========================
-    user_input db "1930507175", 0
-    ; ==========================
-    prompt db 'Enter the encrypted value: ', 0
-    input_fmt db '%d', 0                ; Format string for integer input
-    output_fmt db '%c', 0  ; Format string for integer output
-    xor_key dd 0x73113777  
+    msg db "The plaintext is: "
+    temp dq 0x0
+    one dq 0x0
+    two dq 0x0
+    three dq 0x0
+    four dq 0x0
+    ; ========================== 
 
 section .text
 global decrypt_and_print
 
-extern printf, atoi
+extern printf
 
 ;When using the below function, be sure to place whatever you want to print in the rax register first
 print_char_32:
@@ -29,33 +32,58 @@ print_char_32:
     ret
 
 decrypt_and_print:
-    ; Do not modify anything above this line unless you know what you are doing
-    ; ==========================
-    ;1930507175 1930507143 1930506775 1930507047
-      
-      ; Convert string to integer
-    mov rdi, user_input
-    call atoi                         ; Convert ASCII to integer
+    ;1930506807 1930507047 1930506823 1930506807
+    ;    rcx        rsi       rdx         rdi
 
-    ; Decrypt the value
-    mov rsi, user_input              ; Load the integer input into EAX
-    xor rsi, 0x73113777               ; XOR with the key
-    ror rsi, 4                         ; Rotate right by 4 bits
+    xor rcx, 0x73113777
+    ror rcx, 4
 
-    ; Print decrypted value
-    mov rdi, output_fmt
-    xor rax, rax
-    call printf
-    call print_char_32
+    xor rsi, 0x73113777
+    ror rsi, 4
+
+    xor rdx, 0x73113777
+    ror rdx, 4
+
+    xor rdi, 0x73113777
+    ror rdi, 4
+
+
+    mov [one], rcx
+    mov [two], rsi
+    mov [three], rdx
+    mov [four], rdi   
+
+
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, msg
+    mov rdx, 18
+    syscall
     
-    ; Exit program
-    mov eax, 60                        ; SYS_exit system call number
-    xor edi, edi                       ; Exit code 0
-    syscall 
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, one
+    mov rdx, 1
+    syscall
 
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, two
+    mov rdx, 1
+    syscall
 
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, three
+    mov rdx, 1
+    syscall
 
-    ; ==========================
-    ; Do not modify anything below this line unless you know what you are doing
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, four
+    mov rdx, 1
+    syscall
 
     ret
+
+

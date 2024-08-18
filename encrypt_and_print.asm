@@ -51,9 +51,9 @@ encrypt_and_print:
     mov rdx, 20
     syscall
 
-    movzx eax, byte [user_input]
-    rol eax, 4
-    xor eax, 0x73113777
+    movzx eax, byte [user_input];84 -> 0x54 HEX
+    rol eax, 4;1344 -> 0x540 HEX
+    xor eax, 0x73113777 ;1930506807 -> 0x73113237 HEX
     
     mov rdi, format
     mov rsi, rax
