@@ -105,6 +105,5 @@ encrypt_and_print:
 
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing
-
     ret
 
