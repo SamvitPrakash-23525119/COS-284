@@ -43,5 +43,4 @@ input:
     mov rsi, trash
     mov rdx, 1
     syscall
-
     ret
