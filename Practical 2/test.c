@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 extern float convertStringToFloat(const char *str);
 extern float* extractAndConvertFloats(int *numFloats);
@@ -19,6 +20,15 @@ int main() {
 
     //     free(floats);
     // }
+
+    // Test case 1: Array of floats
+    float testArray1[] = {32.133, 45.66, -21.255};
+    int size1 = sizeof(testArray1) / sizeof(testArray1[0]);
+    double result1 = processArray(testArray1, size1);
+    printf("Test Case 1 Result: %f\n", result1);
+
+    // Add more test cases as needed
+    // Test case 2: Edge cases, empty array, etc.
 
     return 0;
 }
