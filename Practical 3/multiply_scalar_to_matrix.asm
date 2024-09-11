@@ -7,6 +7,13 @@ segment .text
         global multiplyScalarToMatrix
         
 multiplyScalarToMatrix:   
+        xor r9, r9                      ; Setting r9 to 0 for comparisons
+        cmp r9, rsi                     ; Comparing rsi to 0
+        jz loop_row_end                 ; Goto end of code if rsi = 0 [rsi is the row paramater]
+
+        xor r9, r9                      ; Setting r9 to 0 for comparisons [incase its value changed for whatever reason]
+        cmp r9, rdx                     ; Comparing rdx to 0
+        jz loop_row_end                 ; Goto end of code if rdx = 0 [rdx is the col paramater]
 
         xor r10, r10                    ; Setting Counter Variable to 0
         xor r11, r11                    ; Setting Counter Variable to 0
