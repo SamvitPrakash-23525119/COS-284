@@ -1,7 +1,7 @@
 ; ==========================
 ; Group member 01: Samvit_Prakash_u23525119
-; Group member 02: Name_Surname_student-nr
-; Group member 03: Name_Surname_student-nr
+; Group member 02: Alisha_Perumal_u22512285
+; Group member 03: Diya_Budhia_u22594044
 ; ==========================
 segment .text
         global multiplyScalarToMatrix
@@ -49,3 +49,4 @@ loop_col_begin:                         ; Start of Inner Loop
 loop_row_end:                           ; End of outer loop
 
         ret                             ; return
+
